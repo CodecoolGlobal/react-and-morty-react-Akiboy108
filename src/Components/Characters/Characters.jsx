@@ -1,18 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useCharacters } from "../../api/useData";
+import Characterdisplay from "../CharacterDisplay/Characterdisplay";
 
 export default function Characters() {
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
-  console.log(characters);
+  const [character, setCharacter] = useState("");
 
   const newPage = (newPage = 1) => {
-    setPage(newPage);
     console.log(page);
+    setPage(newPage);
   };
 
-  useEffect(() => {}, []);
+  const selectCharacter = (newCharacter) => {
+    console.log(newCharacter);
+    setCharacter(newCharacter);
+  };
 
   function Pages() {
     return (
@@ -47,8 +51,22 @@ export default function Characters() {
       <div id="characterList">
         {characters === "Loading..."
           ? characters
-          : characters.results.map((character, index) => (
-              <div key={index}>{character.name}</div>
+          : characters.results.map((char, index) => (
+              <div>
+                <div
+                  key={index}
+                  onClick={(e) => selectCharacter(e.target.innerText)}
+                >
+                  {char.name}
+                </div>
+                {character === char.name ? (
+                  <div>
+                    <Characterdisplay character={char} />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
             ))}
       </div>
     </div>
