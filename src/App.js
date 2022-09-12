@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { useCharacters, useLocations } from "./api/useData";
+import Layout from "./Components/Layout/Layout";
 
 function App() {
   const characters = useCharacters(1);
@@ -11,7 +12,14 @@ function App() {
   console.log("Locations data: ");
   console.log(locations);
 
-  return <div className="App">Take a look at the console! (F12)</div>;
+  return (
+    <div className="App">
+      <Layout 
+        characters={characters} 
+        locations={locations}
+      ></Layout>
+    </div>
+  );
 }
 
 export default App;
