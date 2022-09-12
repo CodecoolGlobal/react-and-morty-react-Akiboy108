@@ -2,8 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useCharacters } from "../../api/useData";
 
-export default function Characters({startpage = 1}) {
-  const [page, setPage] = useState(startpage);
+export default function Characters() {
+  const [page, setPage] = useState(1);
   const characters = useCharacters(page);
   console.log(characters);
 
@@ -24,12 +24,7 @@ export default function Characters({startpage = 1}) {
         {characters.info.prev === null ? (
           <button disabled>Prev</button>
         ) : (
-          <button
-            data-page={characters.info.prev[characters.info.prev.length - 1]}
-            onClick={(e) => newPage(e.target.dataset.page)}
-          >
-            Prev
-          </button>
+          <button onClick={() => newPage(page - 1)}>Prev</button>
         )}
 
         <span> {page} </span>
@@ -37,12 +32,7 @@ export default function Characters({startpage = 1}) {
         {characters.info.next === null ? (
           <button disabled>Next</button>
         ) : (
-          <button
-            data-page={characters.info.next[characters.info.next.length - 1]}
-            onClick={(e) => newPage(e.target.dataset.page)}
-          >
-            Next
-          </button>
+          <button onClick={() => newPage(page + 1)}>Next</button>
         )}
       </>
     );
@@ -58,9 +48,7 @@ export default function Characters({startpage = 1}) {
         {characters === "Loading..."
           ? characters
           : characters.results.map((character, index) => (
-              <div key={index}>
-                {character.name} {character.status === "Dead" ? "†" : ""}
-              </div>
+              <div key={index}>{character.name}</div>
             ))}
       </div>
     </div>
