@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Locations from './Components/Location/Location'
 import { useCharacters, useLocations } from "./api/useData";
 import Layout from "./Components/Layout/Layout";
 
