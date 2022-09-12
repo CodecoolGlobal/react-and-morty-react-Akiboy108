@@ -1,12 +1,16 @@
 import React from 'react'
+import './Location.css';
 
 const Location = (props) => {
-    const location = props.location;
-    console.log('LOC:::::::::::::::', location)
+    const name = props.location.name;
+    const type = props.location.type;
+
     return (
         <div id='Container'>
-            <span>{location.map(x => x.name)}</span>
-            <span>{location.map(x => x.type)}</span>
+            <div className='row'>
+                <div id='locationName'>{name}</div>
+                <div id='locationType'>{type}</div>
+            </div>
         </div>
     )
 }

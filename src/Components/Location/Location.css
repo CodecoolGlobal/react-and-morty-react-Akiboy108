@@ -1,0 +1,26 @@
+#Container {
+    position: relative;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid rgb(9, 59, 59);
+}
+
+#locationName {
+    border-right: 1px solid rgb(31, 149, 149);
+    width: 250px;
+    margin: 2px;
+}
+
+#locationType {
+    padding-left: 10px;
+    width: 200px;
+    margin: 2px;
+}
