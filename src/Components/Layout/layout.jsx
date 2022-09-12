@@ -1,9 +1,9 @@
 import React from "react";
 import "./Layout.css";
 import logo from "./../../img/logo.png";
-import Characters from "./../Characters/Characters";
-import Locations from "./../Locations/locations";
-import LayoutDescriptions from "./../LayoutDescriptions/LayoutDescriptions"
+import Characters from "../Characters/Characters";
+import Locations from "../Locations/locations";
+import LayoutDescriptions from "../LayoutDescriptions/LayoutDescriptions"
 import { useState } from "react";
 
 export default function Layout(props) {
