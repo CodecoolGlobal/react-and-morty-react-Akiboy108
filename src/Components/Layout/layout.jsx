@@ -3,6 +3,7 @@ import "./Layout.css";
 import logo from "./../../img/logo.png";
 import Characters from "./../Characters/Characters";
 import Locations from "./../Locations/locations";
+import LayoutDescriptions from "./../LayoutDescriptions/LayoutDescriptions"
 import { useState } from "react";
 
 export default function Layout(props) {
@@ -32,6 +33,7 @@ export default function Layout(props) {
         </span>
       </div>
       <div className="Layout__content">
+        {(!isClickedCharacters && !isClickedLocations) && <LayoutDescriptions></LayoutDescriptions>}
         {isClickedCharacters && (
           <Characters characters={props.characters}></Characters>
         )}
