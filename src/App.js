@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
-import Locations from './Components/Location/Location'
 import { useCharacters, useLocations } from "./api/useData";
-import Layout from "./Components/Layout/Layout";
+import Layout from "./Components/Layout/layout";
 
 function App() {
   const characters = useCharacters(1);
@@ -15,8 +14,8 @@ function App() {
 
   return (
     <div className="App">
-      <Layout 
-        characters={characters} 
+      <Layout
+        characters={characters}
         locations={locations}
       ></Layout>
     </div>
