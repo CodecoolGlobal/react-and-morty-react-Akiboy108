@@ -1,6 +1,6 @@
 import React from "react";
 import "./Layout.css";
-import logo from "./../../img/logo.png";
+import logo from "./../../img/Rick-and-Morty.png";
 import Characters from "./../Characters/Characters";
 import Locations from "./../Locations/locations";
 import LayoutDescriptions from "./../LayoutDescriptions/LayoutDescriptions"
