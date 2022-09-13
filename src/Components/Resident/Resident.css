@@ -1,0 +1,36 @@
+.Resident.pointer {
+    position: relative;
+    text-align: center;
+    padding: 3px;
+    border: 1px solid rgb(9, 59, 59);
+    margin: 3px;
+    border-radius: 3px;
+    z-index: 1;
+    transition: color .2s ease-in-out;
+}
+
+.Resident.pointer::before {
+    content: '';
+    position: absolute;
+    border-radius: 3px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgb(31, 142, 142);
+
+    transition: transform .2s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: top;
+}
+
+.Resident.pointer:hover::before,
+.Resident.pointer:focus::before {
+    transform: scaleX(1);
+}
+
+.Resident.pointer:hover,
+.Resident.pointer:focus {
+    color: black;
+}
