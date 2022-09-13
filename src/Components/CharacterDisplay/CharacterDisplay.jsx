@@ -17,24 +17,31 @@ export default function CharacterDisplay({ character }) {
           Gender: {character.gender}
         </div>
         <div className="Characterdisplay__species">
-          Species: {character.species}
+          Species: {character.species === "unknown"? "❓ unknown": character.species}
         </div>
         <div className="Characterdisplay__location">
-          Location: {character.location.name}
+          Location: {character.location.name === "unknown"? "❓ unknown": character.location.name}
         </div>
         <div className="Characterdisplay__origin">
-          Origin: {character.origin.name}
+          Origin: {character.origin.name === "unknown"? "❓ unknown": character.origin.name}
         </div>
-        <div className="Characterdisplay__type">Type: {character.type}</div>
+        {character.type === "" ? (
+          ""
+        ) : (
+          <div className="Characterdisplay__type">Type: {character.type}</div>
+        )}
+
         <div className="Characterdisplay__status">
-          Status: {character.status}
+          Status: {character.status === "Dead" ? "💀 Dead" : character.status}
         </div>
       </div>
       <div className="Characterdisplay__episodes">
-        Appears in episode:{" "}
-        {character.episode.map((ep, index) => (
-          <Episode episode={ep} index={index} key={index}/>
-        ))}
+        <div>Appears in <strong>{character.episode.length}</strong> episodes: </div>
+        <div>
+          {character.episode.map((ep, index) => (
+            <Episode episode={ep} index={index} key={index} />
+          ))}
+        </div>
       </div>
       <br />
     </div>
