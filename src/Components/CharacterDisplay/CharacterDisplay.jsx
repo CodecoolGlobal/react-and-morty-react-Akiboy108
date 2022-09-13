@@ -15,7 +15,7 @@ export default function CharacterDisplay({ character }) {
       <div className="Characterdisplay__details">
         <div className="Characterdisplay__gender">
           Gender:{" "}
-          {character.gender === "unknown"
+          {character.gender === "unknown" || character.gender === ""
             ? "❓ " + character.gender
             : character.gender === "Male"
             ? "♂️ " + character.gender
@@ -25,7 +25,7 @@ export default function CharacterDisplay({ character }) {
         </div>
         <div className="Characterdisplay__species">
           Species:{" "}
-          {character.species === "unknown"
+          {character.species === "unknown" || character.species === ""
             ? "❓ " + character.species
             : character.species === "Human"
             ? "🧍 " + character.species
@@ -33,15 +33,16 @@ export default function CharacterDisplay({ character }) {
         </div>
         <div className="Characterdisplay__location">
           Location:{" "}
-          {character.location.name === "unknown"
+          {character.location.name === "unknown" ||
+          character.location.name === ""
             ? "❓ " + character.location.name
             : character.location.name.includes("Earth")
             ? "🌎 " + character.location.name
-            : character.location.name.name}
+            : character.location.name}
         </div>
         <div className="Characterdisplay__origin">
           Origin:{" "}
-          {character.origin.name === "unknown"
+          {character.origin.name === "unknown" || character.origin.name === ""
             ? "❓ " + character.origin.name
             : character.origin.name.includes("Earth")
             ? "🌎 " + character.origin.name
@@ -55,7 +56,9 @@ export default function CharacterDisplay({ character }) {
 
         <div className="Characterdisplay__status">
           Status:{" "}
-          {character.status === "Dead"
+          {character.status === "unknown" || character.status === ""
+            ? "❓ " + character.status
+            : character.status === "Dead"
             ? "💀 " + character.status
             : character.status === "Alive"
             ? "❤️ " + character.status
