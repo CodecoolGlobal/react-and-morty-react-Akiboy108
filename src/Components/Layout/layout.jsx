@@ -14,7 +14,7 @@ export default function Layout(props) {
             <img src={logo} alt="" className="Layout__img"></img>
             <div className="Layout__buttons">
                 <span
-                    className="Layout__button"
+                    className="Layout__button pointer"
                     onClick={() => {
                         setIsClickedLocations(false);
                         setIsClickedCharacters(true);
@@ -23,7 +23,7 @@ export default function Layout(props) {
                     Characters
                 </span>
                 <span
-                    className="Layout__button"
+                    className="Layout__button pointer"
                     onClick={() => {
                         setIsClickedLocations(true);
                         setIsClickedCharacters(false);
