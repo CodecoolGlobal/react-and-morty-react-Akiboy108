@@ -12,11 +12,15 @@ const Locations = (props) => {
     const locations = useLocations(page);
 
     function selectLocation(target) {
-        setLocation(target);
-        console.log(target);
+        if (location === target) {
+            setLocation('');
+        }
+        else {
+            setLocation(target)
+        }
     }
 
-    const newPage = (newPage = 1) => {
+    const newPage = (newPage) => {
         setPage(newPage);
     };
 
