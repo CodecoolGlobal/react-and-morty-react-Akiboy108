@@ -38,7 +38,7 @@ const Locations = (props) => {
                             <div
                                 className="Click pointer"
                                 key={index}
-                                onClick={(e) => selectLocation(e.target.innerText)}
+                                onClick={(e) => selectLocation(loc.name)}
                             >
                                 <Location location={loc} />
                             </div>

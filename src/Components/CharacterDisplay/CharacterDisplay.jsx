@@ -8,7 +8,7 @@ export default function CharacterDisplay({ character }) {
       <div className="Characterdisplay__header">
         <h3 className="Characterdisplay__name">{character.name}</h3>
         <div className="Characterdisplay__img">
-          <img src={character.image} alt={character.name} />
+          <img src={character.image} alt={character.name} className="Characterdisplay__image" />
         </div>
       </div>
       <div className="Characterdisplay__details">

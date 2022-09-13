@@ -4,6 +4,7 @@ import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
 import Pagination from "../Pagination/Pagination";
+import { Fragment } from "react";
 
 export default function Characters() {
   const [page, setPage] = useState(1);
@@ -36,12 +37,12 @@ export default function Characters() {
         {characters === "Loading..."
           ? characters
           : characters.results.map((char, index) => (
-              <>
+              <Fragment key={index}>
                 <div className="characterRow">
                   <div
                     className="characterLeft pointer"
                     key={index}
-                    onClick={(e) => selectCharacter(e.target.innerText)}
+                    onClick={(e) => selectCharacter(char.name)} //
                   >
                     {char.name}
                   </div>
@@ -54,7 +55,7 @@ export default function Characters() {
                 ) : (
                   ""
                 )}
-              </>
+              </Fragment>
             ))}
       </div>
     </div>
