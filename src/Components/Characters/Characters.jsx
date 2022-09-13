@@ -75,7 +75,7 @@ export default function Characters() {
                     <div className="characterRight">{char.species}</div>
                   </div>
                   {characterSelect === char.name ? (
-                    <div id="characterDisplay" className="characterRow">
+                    <div className="characterRow">
                       <CharacterDisplay character={char} />
                     </div>
                   ) : (
