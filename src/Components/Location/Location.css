@@ -3,24 +3,31 @@
 
 }
 
-.row {
+h2 {
+    text-align: center;
+}
+
+.locationRow {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     border-radius: 3px;
     margin: 3px;
-    padding: 10px;
+    height: 60px;
+    align-items: center;
     border: 1px solid rgb(9, 59, 59);
 }
 
 #locationName {
     border-right: 1px solid rgb(31, 149, 149);
-    width: 250px;
+    width: 300px;
+    text-align: center;
     margin: 2px;
 }
 
 #locationType {
+    text-align: center;
     padding-left: 10px;
-    width: 200px;
+    width: 300px;
     margin: 2px;
 }

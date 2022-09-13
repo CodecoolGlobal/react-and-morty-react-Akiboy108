@@ -1,0 +1,13 @@
+.pagination {
+    text-align: center;
+}
+
+.Click:hover {
+    cursor: pointer;
+}
+
+.pageCounter {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bolder;
+}
