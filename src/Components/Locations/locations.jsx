@@ -2,17 +2,19 @@ import React from 'react';
 import Location from '../Location/Location';
 import { useState } from 'react';
 import { useLocations } from '../../api/useData';
+import { useResidents } from '../../api/useData';
 import Locationdisplay from '../LocationDisplay/LocationDisplay';
 import './Locations.css'
+import { useEffect } from 'react';
 
 const Locations = (props) => {
 
     const [page, setPage] = useState(1);
-    const [location, setLocation] = useState(1);
+    const [location, setLocation] = useState("");
     const locations = useLocations(page);
-
     function selectLocation(target) {
         setLocation(target);
+        console.log(target)
     }
 
     const nextPage = (nextPage = 1) => { setPage(nextPage); }
@@ -43,13 +45,13 @@ const Locations = (props) => {
             </div>
             <div id='Container'>
                 {locations === 'Loading...' ? locations :
-                    locations.results.map((x, index) => (
+                    locations.results.map((loc, index) => (
                         <div id='location'>
                             <div className='Click pointer' key={index} onClick={(e) => selectLocation(e.target.innerText)}>
-                                <Location location={x} />
+                                <Location location={loc} />
                             </div>
-                            {location === x.name ?
-                                (<div> <Locationdisplay location={x} /> </div>) :
+                            {location === loc.name ?
+                                (<div> <Locationdisplay location={loc} /> </div>) :
                                 ("")
                             }
                         </div>

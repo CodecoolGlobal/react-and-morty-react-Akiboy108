@@ -31,3 +31,16 @@ export const useLocations = (pageNum = 1) => {
   }, [pageNum]);
   return locations === undefined ? "Loading..." : locations;
 };
+
+/**
+     The `results` contains the residents objects situated in the given page number in the pagination.
+     *
+     * @param charNum integer that gives the pagination page number. The json `info` property contains how many pages are.
+     */
+export const useResidents = (charNum = 1) => {
+  const [residents, setUrl] = useFetch(mainUrls.residents + charNum);
+  useEffect(() => {
+    setUrl(mainUrls.residents + charNum);
+  }, [charNum]);
+  return residents === undefined ? "Loading..." : residents;
+};
