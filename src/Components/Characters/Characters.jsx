@@ -5,6 +5,7 @@ import "./Characters.css";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
 import Pagination from "../Pagination/Pagination";
 import { Fragment } from "react";
+import ToTopButton from "../ToTopButton/ToTopButton";
 
 export default function Characters() {
   const [page, setPage] = useState(1);
@@ -37,26 +38,27 @@ export default function Characters() {
         {characters === "Loading..."
           ? characters
           : characters.results.map((char, index) => (
-              <Fragment key={index}>
-                <div className="characterRow">
-                  <div
-                    className="characterLeft pointer"
-                    key={index}
-                    onClick={(e) => selectCharacter(char.name)} //
-                  >
-                    {char.name}
-                  </div>
-                  <div className="characterRight">{char.species}</div>
+            <Fragment key={index}>
+              <div className="characterRow">
+                <div
+                  className="characterLeft pointer"
+                  key={index}
+                  onClick={(e) => selectCharacter(char.name)} //
+                >
+                  {char.name}
                 </div>
-                {character === char.name ? (
-                  <div id="characterDisplay" className="characterRow">
-                    <CharacterDisplay character={char} />
-                  </div>
-                ) : (
-                  ""
-                )}
-              </Fragment>
-            ))}
+                <div className="characterRight">{char.species}</div>
+              </div>
+              {character === char.name ? (
+                <div id="characterDisplay" className="characterRow">
+                  <CharacterDisplay character={char} />
+                </div>
+              ) : (
+                ""
+              )}
+            </Fragment>
+          ))}
+        <ToTopButton />
       </div>
     </div>
   );

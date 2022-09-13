@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { useCharacters, useLocations } from "./api/useData";
 import Layout from "./Components/Layout/layout";
+import ToTopButton from "./Components/ToTopButton/ToTopButton";
 
 function App() {
   const characters = useCharacters(1);

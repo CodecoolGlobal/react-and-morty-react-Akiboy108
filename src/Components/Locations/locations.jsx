@@ -3,6 +3,7 @@ import Location from "../Location/Location";
 import { useState } from "react";
 import { useLocations } from "../../api/useData";
 import Locationdisplay from "../LocationDisplay/LocationDisplay";
+import ToTopButton from "../ToTopButton/ToTopButton";
 import "./Locations.css";
 import Pagination from "../Pagination/Pagination";
 
@@ -56,6 +57,7 @@ const Locations = (props) => {
                             )}
                         </div>
                     ))}
+                    <ToTopButton />
             </div>
         </div>
     );
