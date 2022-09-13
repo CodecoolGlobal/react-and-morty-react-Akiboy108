@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -28,16 +27,16 @@ export default function useScrollList(pageNum, category) {
         setItems((prevItems) => {
           return [...prevItems, ...res.data.results];
         });
-        setHasMore(res.data.results.length > 0);
+        setHasMore(pageNum < res.data.info.pages);
         setLoading(false);
-        console.log(res.data.results);
+        // console.log(res.data.results);
       })
       .catch((e) => {
         if (axios.isCancel(e)) return;
         setError(true);
       });
     return () => cancel();
-  }, [pageNum]);
+  }, [pageNum, category]);
 
   return { loading, error, items, setItems, hasMore };
 }

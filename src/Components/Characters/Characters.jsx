@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import Pagination from "../Pagination/Pagination";
@@ -23,9 +23,9 @@ export default function Characters() {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          console.log("Last item visible");
+          // console.log("Last item element visible");
           setPageScroll((prevPageScroll) => prevPageScroll + 1);
-          console.log(pageScroll);
+          // console.log(pageScroll);
         }
       });
       if (node) observer.current.observe(node);
