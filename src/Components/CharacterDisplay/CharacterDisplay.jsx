@@ -14,16 +14,38 @@ export default function CharacterDisplay({ character }) {
       </div>
       <div className="Characterdisplay__details">
         <div className="Characterdisplay__gender">
-          Gender: {character.gender}
+          Gender:{" "}
+          {character.gender === "unknown"
+            ? "❓ " + character.gender
+            : character.gender === "Male"
+            ? "♂️ " + character.gender
+            : character.gender === "Female"
+            ? "♀️ " + character.gender
+            : character.gender}
         </div>
         <div className="Characterdisplay__species">
-          Species: {character.species === "unknown"? "❓ unknown": character.species}
+          Species:{" "}
+          {character.species === "unknown"
+            ? "❓ " + character.species
+            : character.species === "Human"
+            ? "🧍 " + character.species
+            : "👽 " + character.species}
         </div>
         <div className="Characterdisplay__location">
-          Location: {character.location.name === "unknown"? "❓ unknown": character.location.name}
+          Location:{" "}
+          {character.location.name === "unknown"
+            ? "❓ " + character.location.name
+            : character.location.name.includes("Earth")
+            ? "🌎 " + character.location.name
+            : character.location.name.name}
         </div>
         <div className="Characterdisplay__origin">
-          Origin: {character.origin.name === "unknown"? "❓ unknown": character.origin.name}
+          Origin:{" "}
+          {character.origin.name === "unknown"
+            ? "❓ " + character.origin.name
+            : character.origin.name.includes("Earth")
+            ? "🌎 " + character.origin.name
+            : character.origin.name}
         </div>
         {character.type === "" ? (
           ""
@@ -32,12 +54,19 @@ export default function CharacterDisplay({ character }) {
         )}
 
         <div className="Characterdisplay__status">
-          Status: {character.status === "Dead" ? "💀 Dead" : character.status}
+          Status:{" "}
+          {character.status === "Dead"
+            ? "💀 " + character.status
+            : character.status === "Alive"
+            ? "❤️ " + character.status
+            : character.status}
         </div>
       </div>
       <div className="Characterdisplay__episodes">
-        <div>Appears in <strong>{character.episode.length}</strong> episodes: </div>
         <div>
+          Appears in <strong>{character.episode.length}</strong> episodes:{" "}
+        </div>
+        <div className="characterEpisodes">
           {character.episode.map((ep, index) => (
             <Episode episode={ep} index={index} key={index} />
           ))}

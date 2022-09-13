@@ -1,3 +1,10 @@
 .Characterdisplay{
     text-align: center;
+    align-items: center;
+}
+
+.characterEpisodes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
