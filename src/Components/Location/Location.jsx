@@ -8,13 +8,10 @@ const Location = (props) => {
     const name = props.location.name;
     const type = props.location.type;
 
-    function showProp(target) {
-        setLocation(target)
-    }
 
     return (
-        <div onClick={(e) => showProp(e.target.innerText)} id='Container'>
-            <div className='row'>
+        <div id='Container'>
+            <div className='locationRow'>
                 <div id='locationName'>{name}</div>
                 <div id='locationType'>{type}</div>
             </div>

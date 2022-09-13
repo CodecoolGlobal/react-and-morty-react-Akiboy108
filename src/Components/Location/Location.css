@@ -7,7 +7,7 @@ h2 {
     text-align: center;
 }
 
-.row {
+.locationRow {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

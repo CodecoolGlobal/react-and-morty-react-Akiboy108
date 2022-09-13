@@ -25,7 +25,7 @@ const Locations = (props) => {
                     (<button onClick={() => nextPage(page - 1)}>Prev</button>)
                 }
                 {
-                    <span>{page}</span>
+                    <span className='pageCounter'>{page}</span>
                 }
                 {locations.info.next === null ?
                     (<button disabled>Next</button>) :
@@ -45,7 +45,7 @@ const Locations = (props) => {
                 {locations === 'Loading...' ? locations :
                     locations.results.map((x, index) => (
                         <div id='location'>
-                            <div className='Click' key={index} onClick={(e) => selectLocation(e.target.innerText)}>
+                            <div className='Click pointer' key={index} onClick={(e) => selectLocation(e.target.innerText)}>
                                 <Location location={x} />
                             </div>
                             {location === x.name ?

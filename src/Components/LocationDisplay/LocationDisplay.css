@@ -1,5 +1,10 @@
 .Locationdisplay {
+    border: 1px solid rgb(9, 59, 59);
     display: flex;
+    padding: 10px;
+    border-radius: 3px;
     flex-direction: column;
     flex-wrap: wrap;
+    max-width: 600px;
+    position: relative;
 }
