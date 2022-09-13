@@ -11,11 +11,12 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    border: 1px solid rgb(9, 59, 59);
     border-radius: 3px;
     margin: 3px;
     height: 60px;
     align-items: center;
-    border: 1px solid rgb(9, 59, 59);
+    max-width: 650px;
 }
 
 #locationName {

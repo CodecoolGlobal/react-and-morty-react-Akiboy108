@@ -1,8 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
+import Pagination from "../Pagination/Pagination";
 
 export default function Characters() {
   const [page, setPage] = useState(1);
@@ -10,7 +11,6 @@ export default function Characters() {
   const [character, setCharacter] = useState("");
 
   const newPage = (newPage = 1) => {
-    //console.log(page);
     setPage(newPage);
   };
 
@@ -24,39 +24,14 @@ export default function Characters() {
     }
   };
 
-  function Pages() {
-    return (
-      <div id="characterPagination" className="characterRow characterHeader">
-        <div className="characterLeft">
-          {characters.info.pages} pages ({characters.info.count} items)
-        </div>
-        <div className="characterRight">
-          {characters.info.prev === null ? (
-            <button className="button" disabled>Prev</button>
-          ) : (
-            <button className="button pointer" onClick={() => newPage(page - 1)}>
-              Prev
-            </button>
-          )}
-
-          <span className="characterPageCounter">{page}</span>
-
-          {characters.info.next === null ? (
-            <button className="button" disabled>Next</button>
-          ) : (
-            <button className="button pointer" onClick={() => newPage(page + 1)}>
-              Next
-            </button>
-          )}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div id="characters">
       <h2>Characters</h2>
-      {characters === "Loading..." ? 0 : Pages()}
+      {characters === "Loading..." ? (
+        0
+      ) : (
+        <Pagination data={characters} page={page} newPage={newPage} />
+      )}
       <div id="characterList">
         {characters === "Loading..."
           ? characters
