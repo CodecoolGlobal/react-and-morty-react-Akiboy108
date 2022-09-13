@@ -2,8 +2,20 @@
     text-align: center;
 }
 
+#Container {
+    margin: none;
+    display: flex;
+    flex-direction: column;
+}
+
 .Click:hover {
     cursor: pointer;
+}
+
+.locDispCont {
+    text-align: center;
+    margin: none;
+    padding: none;
 }
 
 .pageCounter {
