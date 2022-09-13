@@ -32,19 +32,19 @@ export default function Characters() {
         </div>
         <div className="characterRight">
           {characters.info.prev === null ? (
-            <button disabled>Prev</button>
+            <button className="button" disabled>Prev</button>
           ) : (
-            <button className="pointer" onClick={() => newPage(page - 1)}>
+            <button className="button pointer" onClick={() => newPage(page - 1)}>
               Prev
             </button>
           )}
 
-          <span> {page} </span>
+          <span className="characterPageCounter">{page}</span>
 
           {characters.info.next === null ? (
-            <button disabled>Next</button>
+            <button className="button" disabled>Next</button>
           ) : (
-            <button className="pointer" onClick={() => newPage(page + 1)}>
+            <button className="button pointer" onClick={() => newPage(page + 1)}>
               Next
             </button>
           )}
