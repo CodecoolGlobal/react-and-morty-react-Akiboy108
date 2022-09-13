@@ -26,7 +26,7 @@ export default function Characters() {
 
   function Pages() {
     return (
-      <>
+      <div id="characterPagination" className="characterRow characterHeader">
         <div className="characterLeft">
           {characters.info.pages} pages ({characters.info.count} items)
         </div>
@@ -49,22 +49,20 @@ export default function Characters() {
             </button>
           )}
         </div>
-      </>
+      </div>
     );
   }
 
   return (
     <div id="characters">
       <h2>Characters</h2>
-      <div id="characterPagination" className="row header">
-        {characters === "Loading..." ? 0 : Pages()}
-      </div>
+      {characters === "Loading..." ? 0 : Pages()}
       <div id="characterList">
         {characters === "Loading..."
           ? characters
           : characters.results.map((char, index) => (
               <>
-                <div className="row">
+                <div className="characterRow">
                   <div
                     className="characterLeft pointer"
                     key={index}
@@ -75,7 +73,7 @@ export default function Characters() {
                   <div className="characterRight">{char.species}</div>
                 </div>
                 {character === char.name ? (
-                  <div id="characterDisplay" className="row">
+                  <div id="characterDisplay" className="characterRow">
                     <CharacterDisplay character={char} />
                   </div>
                 ) : (
