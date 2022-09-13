@@ -14,8 +14,10 @@
 }
 
 .characterHeader {
-    font-weight: bolder;
-    text-align: center;
+  font-weight: bolder;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .characterLeft {
@@ -28,4 +30,9 @@
   padding-left: 10px;
   width: 200px;
   margin: 2px;
+}
+
+.characterPageCounter {
+  margin-left: 10px;
+  margin-right: 10px;
 }
