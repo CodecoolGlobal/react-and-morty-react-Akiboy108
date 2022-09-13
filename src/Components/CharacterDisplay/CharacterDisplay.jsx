@@ -1,7 +1,7 @@
 import React from "react";
 import Episode from "./../Episode/Episode";
 
-export default function Characterdisplay({ character }) {
+export default function CharacterDisplay({ character }) {
   console.log(character);
   return (
     <div className="Characterdisplay">
