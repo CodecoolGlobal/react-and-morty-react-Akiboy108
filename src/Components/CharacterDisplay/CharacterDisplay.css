@@ -1,10 +1,11 @@
-.Characterdisplay{
-    text-align: center;
-    align-items: center;
+.Characterdisplay {
+  text-align: center;
+  align-items: center;
+  max-width: 650px;
 }
 
-.characterEpisodes{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+.Characterdisplay__episodes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
 }

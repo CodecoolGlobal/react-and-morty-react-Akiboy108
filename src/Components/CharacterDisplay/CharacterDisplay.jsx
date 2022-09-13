@@ -5,7 +5,6 @@ import Episode from "./../Episode/Episode";
 export default function CharacterDisplay({ character }) {
   return (
     <div className="Characterdisplay">
-      <br />
       <div className="Characterdisplay__header">
         <h3 className="Characterdisplay__name">{character.name}</h3>
         <div className="Characterdisplay__img">
@@ -64,18 +63,17 @@ export default function CharacterDisplay({ character }) {
             ? "❤️ " + character.status
             : character.status}
         </div>
-      </div>
-      <div className="Characterdisplay__episodes">
-        <div>
-          Appears in <strong>{character.episode.length}</strong> episodes:{" "}
+        <div className="Characterdisplay__episodesText">
+          <div>
+            Appears in <strong>{character.episode.length}</strong> episodes:{" "}
+          </div>
+          <div className="Characterdisplay__episodes">
+            {character.episode.map((ep, index) => (
+              <Episode episode={ep} index={index} key={index} />
+            ))}
+          </div>
         </div>
-        <div className="characterEpisodes">
-          {character.episode.map((ep, index) => (
-            <Episode episode={ep} index={index} key={index} />
-          ))}
-        </div>
       </div>
-      <br />
     </div>
   );
 }
