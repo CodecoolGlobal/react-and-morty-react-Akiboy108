@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
@@ -32,9 +32,14 @@ export default function Characters() {
         </div>
         <div className="characterRight">
           {characters.info.prev === null ? (
-            <button className="button" disabled>Prev</button>
+            <button className="button" disabled>
+              Prev
+            </button>
           ) : (
-            <button className="button pointer" onClick={() => newPage(page - 1)}>
+            <button
+              className="button pointer"
+              onClick={() => newPage(page - 1)}
+            >
               Prev
             </button>
           )}
@@ -42,9 +47,14 @@ export default function Characters() {
           <span className="characterPageCounter">{page}</span>
 
           {characters.info.next === null ? (
-            <button className="button" disabled>Next</button>
+            <button className="button" disabled>
+              Next
+            </button>
           ) : (
-            <button className="button pointer" onClick={() => newPage(page + 1)}>
+            <button
+              className="button pointer"
+              onClick={() => newPage(page + 1)}
+            >
               Next
             </button>
           )}
