@@ -1,19 +1,21 @@
 import React from "react";
+import "./CharacterDisplay.css";
 import Episode from "./../Episode/Episode";
 
 export default function CharacterDisplay({ character }) {
-  console.log(character);
   return (
     <div className="Characterdisplay">
       <br />
       <div className="Characterdisplay__header">
-        <span className="Characterdisplay__name">Name: {character.name}</span>
-        <span className="Characterdisplay__gender">
-          Gender: {character.gender}
-        </span>
-        <image className="Characterdisplay__img" src={character.image} alt="" />
+        <h3 className="Characterdisplay__name">{character.name}</h3>
+        <div className="Characterdisplay__img">
+          <img src={character.image} alt={character.name} />
+        </div>
       </div>
       <div className="Characterdisplay__details">
+        <div className="Characterdisplay__gender">
+          Gender: {character.gender}
+        </div>
         <div className="Characterdisplay__species">
           Species: {character.species}
         </div>
@@ -23,15 +25,15 @@ export default function CharacterDisplay({ character }) {
         <div className="Characterdisplay__origin">
           Origin: {character.origin.name}
         </div>
-        <span className="Characterdisplay__type">Type: {character.type}</span> |{" "}
-        <span className="Characterdisplay__status">
+        <div className="Characterdisplay__type">Type: {character.type}</div>
+        <div className="Characterdisplay__status">
           Status: {character.status}
-        </span>
+        </div>
       </div>
       <div className="Characterdisplay__episodes">
         Appears in episode:{" "}
         {character.episode.map((ep, index) => (
-          <Episode episode={ep} index={index} />
+          <Episode episode={ep} index={index} key={index}/>
         ))}
       </div>
       <br />
