@@ -17,7 +17,7 @@ export default function Characters() {
   const selectCharacter = (newCharacter) => {
     console.log(newCharacter);
     console.log(character);
-    if (newCharacter == character) {
+    if (newCharacter === character) {
       setCharacter("");
     } else {
       setCharacter(newCharacter);
