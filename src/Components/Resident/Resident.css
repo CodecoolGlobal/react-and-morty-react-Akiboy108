@@ -34,3 +34,15 @@
 .Resident.pointer:focus {
     color: black;
 }
+
+.charDispCont {
+    width: 630px;
+    margin: 0;
+    padding: 0;
+}
+
+.charDispImg {
+    padding: 0;
+    margin: 0;
+    width: 630px;
+}

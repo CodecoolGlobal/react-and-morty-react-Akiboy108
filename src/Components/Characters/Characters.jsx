@@ -90,6 +90,7 @@ export default function Characters() {
                 </Fragment>
               );
             })}
+            <ToTopButton />
       </div>
     </div>
   );
