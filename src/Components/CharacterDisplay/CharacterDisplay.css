@@ -1,13 +1,26 @@
 .Characterdisplay {
   text-align: center;
-  align-items: center;
+  align-content: center;
   width: 650px;
+}
+
+.Characterdisplay__image {
+  border: 3px solid rgb(9, 59, 59);
+  outline: #b1e029 2px solid;
+}
+
+.Characterdisplay__details > div,
+.Characterdisplay__name {
+  border-top: 1px solid rgb(9, 59, 59);
+  border-bottom: 1px solid rgb(9, 59, 59);
+  margin: 10px;
+  padding: 5px;
 }
 
 .Characterdisplay__episodes {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row; 
+  flex-direction: row;
   align-content: center;
   justify-content: center;
 }
