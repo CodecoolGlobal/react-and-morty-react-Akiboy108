@@ -4,7 +4,7 @@ import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import Pagination from "../Pagination/Pagination";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
-/* import ToTopButton from "../ToTopButton/ToTopButton"; */
+import ToTopButton from "../ToTopButton/ToTopButton";
 import useScrollList from "../../Hooks/useScrollList";
 
 export default function Characters() {
@@ -63,33 +63,33 @@ export default function Characters() {
         {!items
           ? "Loading..."
           : items.map((char, index) => {
-              return (
-                <Fragment key={char.name + index}>
+            return (
+              <Fragment key={char.name + index}>
+                <div
+                  className="characterRow"
+                  ref={items.length === index + 1 ? lastCharElementRef : null}
+                >
                   <div
-                    className="characterRow"
-                    ref={items.length === index + 1 ? lastCharElementRef : null}
+                    className="characterLeft pointer"
+                    onClick={(e) => selectCharacter(char.name)}
                   >
-                    <div
-                      className="characterLeft pointer"
-                      onClick={(e) => selectCharacter(char.name)}
-                    >
-                      {char.name}
-                    </div>
-                    <div className="characterRight">{char.species}</div>
+                    {char.name}
                   </div>
-                  {characterSelect === char.name ? (
-                    <div className="characterRow" id="characterDisplay">
-                      <CharacterDisplay character={char} />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  <div>{loading && "Loading..."}</div>
-                  <div>{error && "Error"}</div>
-                </Fragment>
-              );
-            })}
-            <ToTopButton />
+                  <div className="characterRight">{char.species}</div>
+                </div>
+                {characterSelect === char.name ? (
+                  <div className="characterRow" id="characterDisplay">
+                    <CharacterDisplay character={char} />
+                  </div>
+                ) : (
+                  ""
+                )}
+                <div>{loading && "Loading..."}</div>
+                <div>{error && "Error"}</div>
+              </Fragment>
+            );
+          })}
+        <ToTopButton />
       </div>
     </div>
   );
