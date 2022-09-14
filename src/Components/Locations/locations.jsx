@@ -1,48 +1,77 @@
 import React from "react";
 import Location from "../Location/Location";
-import { useState } from "react";
+import { useState, useRef, useCallback, Fragment } from "react";
 import { useLocations } from "../../api/useData";
-import Locationdisplay from "../LocationDisplay/LocationDisplay";
 import "./Locations.css";
 import Pagination from "../Pagination/Pagination";
+import Locationdisplay from "../LocationDisplay/LocationDisplay";
+import useScrollList from "../../Hooks/useScrollList";
 
 const Locations = (props) => {
   const [page, setPage] = useState(1);
-  const [location, setLocation] = useState("");
-  const locations = useLocations(page);
+  const locationsData = useLocations(page);
 
-  function selectLocation(target) {
-    setLocation(target);
-    console.log(target);
-  }
+  const [locationSelect, setLocationSelect] = useState("");
+
+  const [pageScroll, setPageScroll] = useState(page);
+  const { items, setItems, hasMore, loading, error } = useScrollList(
+    pageScroll,
+    "location"
+  );
+
+  const observer = useRef();
+  const lastLocElementRef = useCallback(
+    (node) => {
+      // console.log(node);
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          // console.log("Last item element visible");
+          setPageScroll((prevPageScroll) => prevPageScroll + 1);
+          // console.log(pageScroll);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
 
   const newPage = (newPage = 1) => {
     setPage(newPage);
+    setItems([]);
+    setPageScroll(newPage);
+  };
+
+  const selectLocation = (newLocation) => {
+    if (newLocation === locationSelect) {
+      setLocationSelect("");
+    } else {
+      setLocationSelect(newLocation);
+    }
   };
 
   return (
-    <div>
+    <Fragment>
       <h2>Locations</h2>
-
-      {locations === "Loading..." ? (
+      {locationsData === "Loading..." ? (
         0
       ) : (
-        <Pagination data={locations} page={page} newPage={newPage} />
+        <Pagination data={locationsData} page={page} newPage={newPage} />
       )}
-
       <div id="Container">
-        {locations === "Loading..."
-          ? locations
-          : locations.results.map((loc, index) => (
-              <div id="location">
+        {!items === "Loading..."
+          ? "Loading..."
+          : items.map((loc, index) => (
+              <div id="location" key={index}>
                 <div
                   className="Click pointer"
-                  key={index}
                   onClick={(e) => selectLocation(e.target.innerText)}
+                  ref={items.length === index + 1 ? lastLocElementRef : null}
                 >
                   <Location location={loc} />
                 </div>
-                {location === loc.name ? (
+                {locationSelect === loc.name ? (
                   <div>
                     {" "}
                     <Locationdisplay location={loc} />{" "}
@@ -53,7 +82,9 @@ const Locations = (props) => {
               </div>
             ))}
       </div>
-    </div>
+      <div>{loading && "Loading..."}</div>
+      <div>{error && "Error"}</div>
+    </Fragment>
   );
 };
 

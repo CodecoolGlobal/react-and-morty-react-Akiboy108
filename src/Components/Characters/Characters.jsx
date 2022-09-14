@@ -19,7 +19,7 @@ export default function Characters() {
   );
 
   const observer = useRef();
-  const lastItemElementRef = useCallback(
+  const lastCharElementRef = useCallback(
     (node) => {
       // console.log(node);
       if (loading) return;
@@ -66,7 +66,7 @@ export default function Characters() {
                 <Fragment key={char.name}>
                   <div
                     className="characterRow"
-                    ref={items.length === index + 1 ? lastItemElementRef : null}
+                    ref={items.length === index + 1 ? lastCharElementRef : null}
                   >
                     <div
                       className="characterLeft pointer"
