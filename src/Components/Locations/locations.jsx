@@ -64,9 +64,9 @@ const Locations = (props) => {
                 {!items === "Loading..."
                     ? "Loading..."
                     : items.map((loc, index) => (
-                        <>
+                        <Fragment key={index}>
                             <div
-                                key={index}
+
                                 className="Click pointer locationRow"
                                 onClick={(e) => selectLocation(loc.name)}
                                 ref={items.length === index + 1 ? lastLocElementRef : null}
@@ -83,7 +83,7 @@ const Locations = (props) => {
                             )}
                             <div>{loading && "Loading..."}</div>
                             <div>{error && "Error"}</div>
-                        </>
+                        </Fragment>
                     ))}
                 <ToTopButton />
             </div>
