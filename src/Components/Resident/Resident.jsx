@@ -2,7 +2,6 @@ import React from "react";
 import './Resident.css'
 import { useState } from "react";
 import { useResidents } from '../../api/useData';
-import { useCharacters } from '../../api/useData';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay'
 
 export default function Resident({ resident }) {
