@@ -1,8 +1,7 @@
-import React from 'react'
-import Resident from "./../Resident/Resident" //Evil
-import './LocationDisplay.css'
+import React from "react";
+import Resident from "./../Resident/Resident"; //Evil
+import "./LocationDisplay.css";
 const Locationdisplay = ({ location }) => {
-
   return (
     <div className='Locationdisplay'>
       <div className='Locationdisplay__text_container'>
@@ -20,6 +19,6 @@ const Locationdisplay = ({ location }) => {
         </div>) : ''}
       </div>
     </div>
-  )
-}
+  );
+};
 export default Locationdisplay;

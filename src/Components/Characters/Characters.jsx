@@ -4,9 +4,8 @@ import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import Pagination from "../Pagination/Pagination";
 import CharacterDisplay from "../CharacterDisplay/CharacterDisplay";
-import ToTopButton from "../ToTopButton/ToTopButton";
+/* import ToTopButton from "../ToTopButton/ToTopButton"; */
 import useScrollList from "../../Hooks/useScrollList";
-
 
 export default function Characters() {
   const [page, setPage] = useState(1);
@@ -72,14 +71,14 @@ export default function Characters() {
                   >
                     <div
                       className="characterLeft pointer"
-                      onClick={(e) => selectCharacter(e.target.innerText)}
+                      onClick={(e) => selectCharacter(char.name)}
                     >
                       {char.name}
                     </div>
                     <div className="characterRight">{char.species}</div>
                   </div>
                   {characterSelect === char.name ? (
-                    <div className="characterRow">
+                    <div className="characterRow" id="characterDisplay">
                       <CharacterDisplay character={char} />
                     </div>
                   ) : (

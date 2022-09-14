@@ -1,5 +1,5 @@
 import React from "react";
-import "./LayoutDescriptions.css"
+import "./LayoutDescriptions.css";
 
 export default function LayoutDescriptions() {
   return (
