@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, Fragment } from "react";
 import { useCharacters } from "../../api/useData";
 import "./Characters.css";
 import Pagination from "../Pagination/Pagination";
@@ -13,7 +13,10 @@ export default function Characters() {
   const [characterSelect, setCharacterSelect] = useState("");
 
   const [pageScroll, setPageScroll] = useState(page);
-  const { items, setItems, hasMore, loading, error } = useScrollList(pageScroll, "character");
+  const { items, setItems, hasMore, loading, error } = useScrollList(
+    pageScroll,
+    "character"
+  );
 
   const observer = useRef();
   const lastItemElementRef = useCallback(
@@ -60,14 +63,13 @@ export default function Characters() {
           ? "Loading..."
           : items.map((char, index) => {
               return (
-                <div key={char.name + index}>
+                <Fragment key={char.name}>
                   <div
                     className="characterRow"
                     ref={items.length === index + 1 ? lastItemElementRef : null}
                   >
                     <div
                       className="characterLeft pointer"
-                      key={index}
                       onClick={(e) => selectCharacter(e.target.innerText)}
                     >
                       {char.name}
@@ -83,7 +85,7 @@ export default function Characters() {
                   )}
                   <div>{loading && "Loading..."}</div>
                   <div>{error && "Error"}</div>
-                </div>
+                </Fragment>
               );
             })}
       </div>
