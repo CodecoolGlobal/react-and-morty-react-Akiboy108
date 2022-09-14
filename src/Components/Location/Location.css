@@ -1,21 +1,6 @@
-#Container {
+#Container h2 {
     position: relative;
-}
-
-.Layout__content > h2 {
-    text-align: center;
-}
-
-.locationRow {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border: 1px solid rgb(9, 59, 59);
-    border-radius: 3px;
-    margin: 3px;
-    height: 60px;
-    align-items: center;
-    width: 650px;
+    text-align: center !important;
 }
 
 .locationName {

@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.Layout h2 {
+    text-align: center;
+}
+
 .Layout__img {
     max-height: 500px;
     max-width: 99%;

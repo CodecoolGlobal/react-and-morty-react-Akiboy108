@@ -53,7 +53,7 @@ const Locations = (props) => {
     };
 
     return (
-        <Fragment>
+        <div id="locations">
             <h2>Locations</h2>
             {locationsData === "Loading..." ? (
                 0
@@ -64,9 +64,10 @@ const Locations = (props) => {
                 {!items === "Loading..."
                     ? "Loading..."
                     : items.map((loc, index) => (
-                        <div className="location" key={index}>
+                        <>
                             <div
-                                className="Click pointer"
+                                key={index}
+                                className="Click pointer locationRow"
                                 onClick={(e) => selectLocation(loc.name)}
                                 ref={items.length === index + 1 ? lastLocElementRef : null}
                             >
@@ -80,13 +81,13 @@ const Locations = (props) => {
                             ) : (
                                 ""
                             )}
-                        </div>
+                            <div>{loading && "Loading..."}</div>
+                            <div>{error && "Error"}</div>
+                        </>
                     ))}
                 <ToTopButton />
             </div>
-            <div>{loading && "Loading..."}</div>
-            <div>{error && "Error"}</div>
-        </Fragment>
+        </div>
     );
 };
 

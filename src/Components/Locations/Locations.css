@@ -7,6 +7,19 @@
     justify-content: center;
 }
 
+.locationRow {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: 1px solid rgb(9, 59, 59);
+    border-radius: 3px;
+    margin: 3px;
+    height: 60px;
+    align-items: center;
+    width: 650px;
+}
 
 .Click:hover {
     cursor: pointer;

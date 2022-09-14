@@ -6,11 +6,10 @@ const Location = (props) => {
     const type = props.location.type;
 
     return (
-
-            <div className='locationRow'>
+            <>
                 <div className='locationName'>{name}</div>
                 <div className='locationType'>{type}</div>
-            </div>
+            </>
 
     )
 }

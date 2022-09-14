@@ -25,7 +25,7 @@ const Locationdisplay = ({ location }) => {
       <div className="Locationdisplay__residents extra">
         {" "}
         {location.residents.length !== 0 ? (
-          <div>
+          <div className="ResCont">
             <h2>Residents</h2>
             {location.residents.map((resident, ind) => (
               <Resident index={ind} resident={resident} key={resident} />
