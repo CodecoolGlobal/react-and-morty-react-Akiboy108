@@ -1,66 +1,92 @@
 import React from "react";
 import Location from "../Location/Location";
-import { useState } from "react";
+import { useState, useRef, useCallback, Fragment } from "react";
 import { useLocations } from "../../api/useData";
-import Locationdisplay from "../LocationDisplay/LocationDisplay";
-import ToTopButton from "../ToTopButton/ToTopButton";
 import "./Locations.css";
 import Pagination from "../Pagination/Pagination";
+import Locationdisplay from "../LocationDisplay/LocationDisplay";
+import useScrollList from "../../Hooks/useScrollList";
+import ToTopButton from "../ToTopButton/ToTopButton";
 
 const Locations = (props) => {
-    const [page, setPage] = useState(1);
-    const [location, setLocation] = useState("");
-    const locations = useLocations(page);
+  const [page, setPage] = useState(1);
+  const locationsData = useLocations(page);
 
-    function selectLocation(target) {
-        if (location === target) {
-            setLocation('');
+  const [locationSelect, setLocationSelect] = useState("");
+
+  const [pageScroll, setPageScroll] = useState(page);
+  const { items, setItems, hasMore, loading, error } = useScrollList(
+    pageScroll,
+    "location"
+  );
+
+  const observer = useRef();
+  const lastLocElementRef = useCallback(
+    (node) => {
+      // console.log(node);
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          // console.log("Last item element visible");
+          setPageScroll((prevPageScroll) => prevPageScroll + 1);
+          // console.log(pageScroll);
         }
-        else {
-            setLocation(target)
-        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
+
+  const newPage = (newPage = 1) => {
+    setPage(newPage);
+    setItems([]);
+    setPageScroll(newPage);
+  };
+
+  const selectLocation = (newLocation) => {
+    if (newLocation === locationSelect) {
+      setLocationSelect("");
+    } else {
+      setLocationSelect(newLocation);
     }
+  };
 
-    const newPage = (newPage) => {
-        setPage(newPage);
-    };
-
-    return (
-        <div>
-            <h2>Locations</h2>
-
-            {locations === "Loading..." ? (
-                0
-            ) : (
-                <Pagination data={locations} page={page} newPage={newPage} />
-            )}
-
-            <div id="Container">
-                {locations === "Loading..."
-                    ? locations
-                    : locations.results.map((loc, index) => (
-                        <div id="location">
-                            <div
-                                className="Click pointer"
-                                key={index}
-                                onClick={(e) => selectLocation(loc.name)}
-                            >
-                                <Location location={loc} />
-                            </div>
-                            {location === loc.name ? (
-                                <div className="locDispCont">
-                                    {" "}
-                                    <Locationdisplay location={loc} />{" "}
-                                </div>
-                            ) : (
-                                ""
-                            )}
-                        </div>
-                    ))}
-                    <ToTopButton />
-            </div>
-        </div>
-    );
+  return (
+    <Fragment>
+      <h2>Locations</h2>
+      {locationsData === "Loading..." ? (
+        0
+      ) : (
+        <Pagination data={locationsData} page={page} newPage={newPage} />
+      )}
+      <div id="Container">
+        {!items === "Loading..."
+          ? "Loading..."
+          : items.map((loc, index) => (
+              <div id="location" key={index}>
+                <div
+                  className="Click pointer"
+                  onClick={(e) => selectLocation(e.target.innerText)}
+                  ref={items.length === index + 1 ? lastLocElementRef : null}
+                >
+                  <Location location={loc} />
+                </div>
+                {locationSelect === loc.name ? (
+                  <div>
+                    {" "}
+                    <Locationdisplay location={loc} />{" "}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            ))}
+      </div>
+      <div>{loading && "Loading..."}</div>
+      <div>{error && "Error"}</div>
+    </Fragment>
+  );
 };
 
 export default Locations;

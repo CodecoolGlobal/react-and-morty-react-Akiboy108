@@ -63,8 +63,8 @@ export default function CharacterDisplay({ character }) {
             ? "❤️ " + character.status
             : character.status}
         </div>
-        <div className="Characterdisplay__episodesText">
-          <div>
+        <div className="Characterdisplay__episodesDiv">
+          <div className="Characterdisplay__episodesText">
             Appears in <strong>{character.episode.length}</strong> episodes:{" "}
           </div>
           <div className="Characterdisplay__episodes">
