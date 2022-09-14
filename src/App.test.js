@@ -74,14 +74,14 @@ test(" check whether more infomration shows up from the location, when we click 
   const residents = document.querySelector(".Locationdisplay__residents.extra");
   const amount = residents.children.length;
 
-  expect(within(locDisp).getByText("Name: Abadango")).toBeInTheDocument();
-  expect(within(locDisp).getByText("Type: Cluster")).toBeInTheDocument();
-  expect(within(locDisp).getByText("Dimension: unknown")).toBeInTheDocument();
+  expect(within(locDisp).getByText("Abadango")).toBeInTheDocument();
+  expect(within(locDisp).getByText("Cluster")).toBeInTheDocument();
+  expect(within(locDisp).getByText("unknown")).toBeInTheDocument();
   expect(
-    within(locDisp).getByText("Created: 2017-11-10T13:06:38.182Z")
+    within(locDisp).getByText("2017-11-10T13:06:38.182Z")
   ).toBeInTheDocument();
   expect(
-    within(locDisp).getByText("URL: https://rickandmortyapi.com/api/location/2")
+    within(locDisp).getByText("https://rickandmortyapi.com/api/location/2")
   ).toBeInTheDocument();
   expect(amount).toEqual(1);
 });

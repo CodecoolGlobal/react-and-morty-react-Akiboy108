@@ -67,7 +67,7 @@ const Locations = (props) => {
                         <div id="location" key={index}>
                             <div
                                 className="Click pointer"
-                                onClick={(e) => selectLocation(e.target.innerText)}
+                                onClick={(e) => selectLocation(loc.name)}
                                 ref={items.length === index + 1 ? lastLocElementRef : null}
                             >
                                 <Location location={loc} />
