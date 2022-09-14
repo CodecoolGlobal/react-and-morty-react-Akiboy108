@@ -72,14 +72,14 @@ export default function Characters() {
                   >
                     <div
                       className="characterLeft pointer"
-                      onClick={(e) => selectCharacter(e.target.innerText)}
+                      onClick={(e) => selectCharacter(char.name)}
                     >
                       {char.name}
                     </div>
                     <div className="characterRight">{char.species}</div>
                   </div>
                   {characterSelect === char.name ? (
-                    <div className="characterRow">
+                    <div className="characterRow" id="characterDisplay">
                       <CharacterDisplay character={char} />
                     </div>
                   ) : (
