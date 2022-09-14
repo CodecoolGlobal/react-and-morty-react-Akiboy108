@@ -63,7 +63,7 @@ export default function Characters() {
           ? "Loading..."
           : items.map((char, index) => {
               return (
-                <Fragment key={char.name}>
+                <Fragment key={char.name + index}>
                   <div
                     className="characterRow"
                     ref={items.length === index + 1 ? lastCharElementRef : null}
