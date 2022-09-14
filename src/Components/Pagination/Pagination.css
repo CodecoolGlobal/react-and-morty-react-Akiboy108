@@ -6,8 +6,9 @@
   border-radius: 3px;
   margin: 3px;
   height: 60px;
-  align-items: center;
-  max-width: 650px;
+  align-content: center;
+  justify-content: center;
+  width: 650px;
 }
 
 .paginationHeader {

@@ -1,3 +1,7 @@
+#characters > h2 {
+  text-align: center;
+}
+
 .characterRow {
   display: flex;
   flex-wrap: wrap;

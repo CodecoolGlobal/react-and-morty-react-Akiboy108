@@ -1,31 +1,33 @@
 #Container {
     position: relative;
-
 }
 
-h2 {
+.Layout__content > h2 {
     text-align: center;
 }
 
 .locationRow {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     border: 1px solid rgb(9, 59, 59);
     border-radius: 3px;
+    margin: 3px;
+    height: 60px;
     align-items: center;
-    min-height: 60px;
-    margin: 1.5px;
     width: 650px;
 }
 
-#locationName {
+.locationName {
     border-right: 1px solid rgb(31, 149, 149);
     width: 300px;
     text-align: center;
     margin: 2px;
 }
 
-#locationType {
+.locationType {
     text-align: center;
     padding-left: 10px;
     width: 300px;
+    margin: 2px;
 }

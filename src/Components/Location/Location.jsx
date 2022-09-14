@@ -6,12 +6,12 @@ const Location = (props) => {
     const type = props.location.type;
 
     return (
-        <div id='Container'>
+
             <div className='locationRow'>
-                <div id='locationName'>{name}</div>
-                <div id='locationType'>{type}</div>
+                <div className='locationName'>{name}</div>
+                <div className='locationType'>{type}</div>
             </div>
-        </div>
+
     )
 }
 export default Location;

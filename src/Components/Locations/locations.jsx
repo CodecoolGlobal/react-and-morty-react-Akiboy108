@@ -64,7 +64,7 @@ const Locations = (props) => {
                 {!items === "Loading..."
                     ? "Loading..."
                     : items.map((loc, index) => (
-                        <div id="location" key={index}>
+                        <div className="location" key={index}>
                             <div
                                 className="Click pointer"
                                 onClick={(e) => selectLocation(loc.name)}
