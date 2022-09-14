@@ -7,4 +7,5 @@
     flex-wrap: wrap;
     max-width: 600px;
     position: relative;
+    outline: none;
 }

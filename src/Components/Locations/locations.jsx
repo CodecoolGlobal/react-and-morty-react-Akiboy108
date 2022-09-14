@@ -6,6 +6,7 @@ import "./Locations.css";
 import Pagination from "../Pagination/Pagination";
 import Locationdisplay from "../LocationDisplay/LocationDisplay";
 import useScrollList from "../../Hooks/useScrollList";
+import ToTopButton from "../ToTopButton/ToTopButton";
 
 const Locations = (props) => {
   const [page, setPage] = useState(1);

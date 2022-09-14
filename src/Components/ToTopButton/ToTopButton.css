@@ -1,0 +1,14 @@
+.toTop {
+    position: fixed;
+    right: 60px;
+    bottom: 30px;
+    scale: 0.7;
+    border-radius: 50%;
+    background-color: #01b5cc;
+    outline: 5px solid #b1e029;
+    border: 5px #00303a solid;
+}
+
+.toTop:hover {
+    background-color: #01b4cca3;
+}
