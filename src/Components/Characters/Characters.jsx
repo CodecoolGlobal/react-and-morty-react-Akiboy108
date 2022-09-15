@@ -11,7 +11,7 @@ export default function Characters() {
   const [page, setPage] = useState(1);
   const charactersData = useCharacters(page);
 
-  const [characterSelect, setCharacterSelect] = useState("");
+  const [characterSelect, setCharacterSelect] = useState(0);
 
   const [pageScroll, setPageScroll] = useState(page);
   const { items, setItems, hasMore, loading, error } = useScrollList(
@@ -45,7 +45,7 @@ export default function Characters() {
 
   const selectCharacter = (newCharacter) => {
     if (newCharacter === characterSelect) {
-      setCharacterSelect("");
+      setCharacterSelect(0);
     } else {
       setCharacterSelect(newCharacter);
     }
@@ -71,13 +71,13 @@ export default function Characters() {
                 >
                   <div
                     className="characterLeft pointer"
-                    onClick={(e) => selectCharacter(char.name)}
+                    onClick={(e) => selectCharacter(char.id)}
                   >
                     {char.name}
                   </div>
                   <div className="characterRight">{char.species}</div>
                 </div>
-                {characterSelect === char.name ? (
+                {characterSelect === char.id ? (
                   <div className="characterRow" id="characterDisplay">
                     <CharacterDisplay character={char} />
                   </div>
