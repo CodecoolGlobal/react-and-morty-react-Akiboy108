@@ -54,7 +54,7 @@ test("check whether more information shows up from the character, when we click 
   expect(within(charDisp).getByText("Gender: ♂️ Male")).toBeInTheDocument();
   expect(within(charDisp).getByText("Species: 🧍 Human")).toBeInTheDocument();
   expect(
-    within(charDisp).getByText("Location: Citadel of Ricks")
+    within(charDisp).getByText("Location: 🪐 Citadel of Ricks")
   ).toBeInTheDocument();
   expect(
     within(charDisp).getByText("Origin: 🌎 Earth (C-137)")
