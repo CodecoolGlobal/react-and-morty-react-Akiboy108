@@ -1,7 +1,7 @@
 import React from "react";
 import "./Pagination.css";
 
-export default function Pagination({ data, page, newPage }) {
+export default function Pagination({ data, page, newPage, loading }) {
   return (
     <div id="pagination" className="paginationRow paginationHeader">
       <div className="paginationLeft">
@@ -13,7 +13,11 @@ export default function Pagination({ data, page, newPage }) {
             Prev
           </button>
         ) : (
-          <button className="button pointer" onClick={() => newPage(page - 1)}>
+          <button
+            className="button pointer"
+            onClick={() => newPage(page - 1)}
+            disabled={loading ? "disabled" : null}
+          >
             Prev
           </button>
         )}
@@ -25,7 +29,11 @@ export default function Pagination({ data, page, newPage }) {
             Next
           </button>
         ) : (
-          <button className="button pointer" onClick={() => newPage(page + 1)}>
+          <button
+            className="button pointer"
+            onClick={() => newPage(page + 1)}
+            disabled={loading ? "disabled" : null}
+          >
             Next
           </button>
         )}

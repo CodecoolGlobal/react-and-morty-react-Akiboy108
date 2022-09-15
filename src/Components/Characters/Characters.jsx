@@ -57,38 +57,43 @@ export default function Characters() {
       {charactersData === "Loading..." ? (
         0
       ) : (
-        <Pagination data={charactersData} page={page} newPage={newPage} />
+        <Pagination
+          data={charactersData}
+          page={page}
+          newPage={newPage}
+          loading={loading}
+        />
       )}
       <div id="characterList">
         {!items
           ? "Loading..."
           : items.map((char, index) => {
-            return (
-              <Fragment key={char.name + index}>
-                <div
-                  className="characterRow"
-                  ref={items.length === index + 1 ? lastCharElementRef : null}
-                >
+              return (
+                <Fragment key={char.name + index}>
                   <div
-                    className="characterLeft pointer"
-                    onClick={(e) => selectCharacter(char.id)}
+                    className="characterRow"
+                    ref={items.length === index + 1 ? lastCharElementRef : null}
                   >
-                    {char.name}
+                    <div
+                      className="characterLeft pointer"
+                      onClick={(e) => selectCharacter(char.id)}
+                    >
+                      {char.name}
+                    </div>
+                    <div className="characterRight">{char.species}</div>
                   </div>
-                  <div className="characterRight">{char.species}</div>
-                </div>
-                {characterSelect === char.id ? (
-                  <div className="characterRow" id="characterDisplay">
-                    <CharacterDisplay character={char} />
-                  </div>
-                ) : (
-                  ""
-                )}
-                <div>{loading && "Loading..."}</div>
-                <div>{error && "Error"}</div>
-              </Fragment>
-            );
-          })}
+                  {characterSelect === char.id ? (
+                    <div className="characterRow" id="characterDisplay">
+                      <CharacterDisplay character={char} />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div>{loading && "Loading..."}</div>
+                  <div>{error && "Error"}</div>
+                </Fragment>
+              );
+            })}
         <ToTopButton />
       </div>
     </div>
