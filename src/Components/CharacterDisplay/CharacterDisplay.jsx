@@ -32,7 +32,9 @@ export default function CharacterDisplay({ character }) {
             ? "❓ " + character.species
             : character.species === "Human"
             ? "🧍 " + character.species
-            : "👽 " + character.species}
+            : character.species === "Alien"
+            ? "👽 " + character.species
+            : "🐶 " + character.species}
         </div>
         <div className="Characterdisplay__location">
           Location:{" "}
@@ -41,7 +43,7 @@ export default function CharacterDisplay({ character }) {
             ? "❓ " + character.location.name
             : character.location.name.includes("Earth")
             ? "🌎 " + character.location.name
-            : character.location.name}
+            : "🪐 " + character.location.name}
         </div>
         <div className="Characterdisplay__origin">
           Origin:{" "}
@@ -49,7 +51,7 @@ export default function CharacterDisplay({ character }) {
             ? "❓ " + character.origin.name
             : character.origin.name.includes("Earth")
             ? "🌎 " + character.origin.name
-            : character.origin.name}
+            : "🪐 " + character.origin.name}
         </div>
         {character.type === "" ? (
           ""
